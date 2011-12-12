@@ -9,17 +9,15 @@
 	 <br> </p>
 	
 	<form action="valikko1.php" method="post">
-	<SELECT NAME="ongelma" 
+	<SELECT NAME="ongelma" >
 
 	<?php
          while ($rivi = $kysely->fetch()) {
 
 	$muuttuja = $rivi["kuvaus"];
-        echo "<OPTION>" .  $muuttuja;
+        echo "<OPTION value='$rivi[otunnus]'>" .  $muuttuja .'</OPTION>';
 	
         } ?>
-
-	<OPTION SELECTED>  <?php echo $_REQUEST["ongelma"]; ?>
 
 	</SELECT>
 	<p>
