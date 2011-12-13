@@ -1,33 +1,47 @@
+
 <h1> Tervetuloa Rööriklinikkaan </h1>
 
 <?php include ("yhteys.php"); ?>
-<?php include ("valikko.php");?>
+<?php include ("valikko.php"); ?>
 
-
-<p>Valitse listasta vaihtoehtoja, joita et ole vielä tarkistanut
-	ja hae sitten resepti. </p>
-
-<?php $id =  $_REQUEST["ongelma"]; ?>
-
-<?php $kyssari = $yhteys->prepare("SELECT kuvaus  FROM ongelma_syy JOIN syy ON syy_id = stunnus WHERE ongelma_id = ?");
-$kyssari->execute(array($id));
-
-?>
-
-
-<form action="valikko1.php" method="post">
 
 <?php
+$id = $_REQUEST["ongelma"];
+echo "Valitsit: ";
 
-while ($rivi = $kyssari->fetch()) { ?>
-
-	<input type=checkbox name= "syy" value = "syy_id" >
-	<?php   echo $rivi["kuvaus"]; 
-	echo "<br>";
-}
+$valinta = $yhteys->prepare("SELECT kuvaus FROM ongelma WHERE otunnus = ?");
+$valinta->execute(array($id));
+$kuvaus = $valinta->fetch();
+echo $kuvaus[kuvaus] . "<br>";
 ?>
 
- 
-<p> <input type="submit" value="Hae resepti"> </p>
+<p>Valitse listasta vaihtoehtoja, joita et ole vielä tarkistanut
+    ja hae sitten resepti. </p>
+
+
+<?php
+$kyssari = $yhteys->prepare("SELECT kuvaus, stunnus FROM ongelma_syy JOIN 
+    syy ON syy_id = stunnus WHERE ongelma_id = ?");
+
+$kyssari->execute(array($id));
+?>
+
+
+<form action="resepti.php" method="post">
+
+    <?php
+    while ($rivi = $kyssari->fetch()) {
+        ?>
+
+        <input type=checkbox name="syyt[]" value =<?php echo $rivi["stunnus"]; ?> >
+        <?php
+        echo $rivi[kuvaus];
+        echo "<br>";
+    }
+    ?>
+
+
+    <p> <input type="submit" name="nappi" value="Hae resepti"> </p>
 </form>
+
 

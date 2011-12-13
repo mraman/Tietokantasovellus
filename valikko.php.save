@@ -1,0 +1,42 @@
+        <?php // yhteyden muodostus tietokantaan
+        try {
+            $yhteys = new PDO("pgsql:host=localhost;dbname=mraman",
+                            "mraman", "f165dd3859864b0c");
+        } catch (PDOException $e) {
+            die("VIRHE: " . $e->getMessage());
+        }
+        $yhteys->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	?>
+
+
+	<?php // kyselyn suoritus
+        $kysely = $yhteys->prepare("SELECT * FROM ongelma");
+        $kysely->execute();
+        ?>
+
+	 <p> Valitse allaolevasta listasta ongelma, johon tarvitset apua
+	 <br> </p>
+	
+	<form action="valikko.php" method="post">
+	<SELECT NAME="Ongelma" 
+
+	<?php
+         while ($rivi = $kysely->fetch()) {
+
+	$muuttuja = $rivi["kuvaus"];
+        echo "<OPTION>" . $muuttuja;
+	
+        } ?>
+       while ($rivi = $kysely->fetch()) {
+
+
+
+  // echo "<tr>";
+  // echo "<td>" . $rivi["nimi"] . "</td>";
+  // echo "</tr>";
+
+$muuttuja = $rivi["nimi"];
+        echo "<OPTION>" . $muuttuja;
+
+        }	 </SELECT> </form>
+
