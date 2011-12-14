@@ -1,5 +1,5 @@
-<?php include ("yhteys.php"); ?>
-
+<?php include ("yhteys.php");
+	include("yla.php"); ?>
 <?php
 // kyselyn suoritus
 $kysely = $yhteys->prepare("SELECT * FROM ongelma");
@@ -9,7 +9,7 @@ $kysely->execute();
 <p> Valitse allaolevasta listasta ongelma, johon tarvitset apua
     <br> </p>
 
-<form action="valikko1.php" method="post">
+<form action="valikko1.php"  method="post">
     <SELECT NAME="ongelma" >
 
         <?php
@@ -19,7 +19,7 @@ $kysely->execute();
             echo "<OPTION value='$rivi[otunnus]'>" . $muuttuja . '</OPTION>';
         }
         ?>
-        <OPTION SELECTED>  <?php echo $_POST[ongelma] ?>   </OPTION>
+        <OPTION SELECTED> Valitse ongelma  </OPTION>
     </SELECT>
     <p>
         <INPUT TYPE="submit" VALUE="OK">
