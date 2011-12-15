@@ -1,16 +1,16 @@
 <?php include ("yla.php"); ?>
 <h2>
-Taalla voit antaa palautetta tai korjausehdotuksia yllapitajalle. 
+Täällä voit antaa palautetta tai korjausehdotuksia ylläpitäjälle. 
 </h2>
 <p>
-Kirjoita palaute tahan ja paina laheta-nappia!
+Kirjoita palaute tähän ja paina lähetä-nappia!
 </p>
 
 <form action="lahetys.php" method="post">
 <textarea name="viesti"
 cols=40 rows=10>  </textarea>
 <br>
-<input type="submit" value="Laheta">
-<input type="reset" value = "Tyhjenna">
+<input type="submit" value="Lähetä">
+<input type="reset" value = "Tyhjennä">
 </form>
 <?php	include("ala.php"); ?>

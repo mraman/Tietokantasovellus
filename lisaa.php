@@ -1,26 +1,24 @@
 <?php include ("yhteys.php"); ?>
+<?php include ("yllapito_yla.php"); ?>
 
 <?php
-// kyselyn suoritus
-$kysely = $yhteys->prepare("SELECT * FROM ongelma");
-$kysely->execute();
-?>
 
+    if (empty($_POST['uusi_ongelma'])) {
+        echo "Tekstikenttä oli tyhjä!";
+    }
 
-
-<form action="lisaa.php" method="post">
-<SELECT NAME="ongelma" >
-
-<?php
-        while ($rivi = $kysely->fetch()) {
-
-            $muuttuja = $rivi["kuvaus"];
-            echo "<OPTION value='$rivi[otunnus]'>" . $muuttuja . '</OPTION>';
+	 else {
+	 $ongelma = $_POST["uusi_ongelma"];
+         echo "<br>" . "Ongelma lisätty: " . $ongelma;
         }
-        ?>
-<OPTION SELECTED> <?php echo "Valitse ongelma" ?> </OPTION>
-</SELECT>
-<p>
-<INPUT TYPE="submit" VALUE="OK">
-</p>
-</form>
+    
+   // die();
+
+ $lisays = $yhteys->prepare("INSERT into ongelma (kuvaus)
+ VALUES (?));
+ $lisays->execute(array($ongelma));
+
+?> 
+
+
+<?php include("ala.php"); ?>

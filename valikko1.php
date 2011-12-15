@@ -36,7 +36,7 @@ $kyssari->execute(array($id));
         ?>
 
         <input type=checkbox name="syyt[]" value =
-	<?php echo $rivi["stunnus"]; ?> checked="yes" >
+	<?php echo $rivi["stunnus"]; ?>  >
         <?php
         echo $rivi[kuvaus];
         echo "<br>";
