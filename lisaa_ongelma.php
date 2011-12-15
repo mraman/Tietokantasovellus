@@ -9,8 +9,7 @@ include ("yhteys.php");
 
 ?>
 
-<p> Valitse allaolevasta listasta ongelma tai kirjoita uusi ongelma
-tekstialueeseen.
+<p> Valitse allaolevasta listasta ongelma.
 <br> </p>
 
 <form action="valikko1.php" method="post">
