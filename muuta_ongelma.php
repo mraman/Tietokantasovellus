@@ -1,9 +1,10 @@
+<?php include ("istunto.php"); ?>
 <?php include ("yhteys.php");
 include ("muutos_yla.php");
 ?>
 <h2> Muuta ongelmaa </h2>
 <p> Valitse listasta ongelma, jonka haluat muuttaa. Kirjoita sitten
-alla olevaan tekstialueeseen ongelman muutettu kuvaus.
+alla olevaan tekstialueeseen ongelman korvaava kuvaus.
 <br> </p>
 
 <form action="muuta.php" method="post">

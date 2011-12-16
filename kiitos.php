@@ -4,5 +4,5 @@
 <body>
 <h1> Kiitos palautteesta! </h1>
 
-<a href="valikko.php" > Takaisin </a>
+<a href="index.php" > Takaisin </a>
 <?php include("ala.php"); ?>

@@ -1,6 +1,9 @@
 <?php
-/*
-Muutetaan tietokannan riveja muutos.php lomakkeen tietojen perusteella
+//include("istunto.php");
+include("yhteys.php");
+?>
 
-*/
+<?php 
+$kysely1=yhteys->prepare("UPDATE kuvaus FROM ongelma");
+
 ?>

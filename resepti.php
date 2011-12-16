@@ -8,7 +8,7 @@ $kuvaus = $yhteys->prepare("SELECT kuvaus FROM syy WHERE stunnus = ?");
 
 if (isset($_POST['nappi'])) {
     if (empty($_POST['syyt'])) {
-        echo "Et valinnut mitaan lukua!";
+        echo "Et valinnut mitaan vaihtoehtoa!";
     } else {
 
 	

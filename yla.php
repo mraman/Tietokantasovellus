@@ -10,7 +10,7 @@
 <a href="index.php"> Etusivu</a> | 
 <a href="valikko.php"> Uusi haku </a> | 
 <a href="palaute.php"> Anna palautetta</a> |
-<a href="yllapito.php"> Ylläpitoon</a>
+<a href="kirjautuminen.php"> Ylläpitoon</a>
 <br>
 <hr>
 
