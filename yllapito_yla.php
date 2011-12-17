@@ -5,7 +5,7 @@
 
 <a href="lisays.php" > Lisaa sisaltoa </a> |
 <a href="muutos.php" > Muuta sisältöä </a> |
-<a href="" > Poista tietoa </a> |
+<a href="poisto.php" > Poista tietoa </a> |
 <a href="ulos.php" > Kirjaudu ulos </a>
 
 <hr>

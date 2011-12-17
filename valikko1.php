@@ -1,12 +1,11 @@
 <?php
-include ("index.php");
- ?>
+include ("yla.php");
+?>
 
 
 <?php
 $id = $_REQUEST["ongelma"];
 ?>
-
 
 <?php
 $valinta = $yhteys->prepare("SELECT kuvaus FROM ongelma WHERE otunnus = ?");
@@ -26,9 +25,6 @@ $kyssari = $yhteys->prepare("SELECT kuvaus, stunnus FROM ongelma_syy JOIN
 
 $kyssari->execute(array($id));
 ?>
-
-
-
 <form action="resepti.php"  method="post">
 
     <?php
@@ -36,16 +32,18 @@ $kyssari->execute(array($id));
         ?>
 
         <input type=checkbox name="syyt[]" value =
-	<?php echo $rivi["stunnus"]; ?>  >
-        <?php
-        echo $rivi[kuvaus];
-        echo "<br>";
-    }
-    ?>
+               <?php echo $rivi["stunnus"]; ?>  >
+               <?php
+               echo $rivi[kuvaus];
+               echo "<br>";
+           }
+           ?>
 
 
- <p> <input type="submit" name="nappi" value="Hae resepti"> </p>
+    <p> <input type="submit" name="nappi" value="Hae resepti"> </p>
 
 </form>
-
+<?php
+include ("ala.php");
+?>
 
