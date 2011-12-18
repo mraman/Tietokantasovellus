@@ -2,6 +2,12 @@
 include("istunto.php");
 include("yllapito_yla.php");
 include ("yhteys.php");
+include("Tulostaja.php");
+?>
+
+<?php
+ $tulosta = new Tulostaja();
+//$tulosta->tulosta_ongelma();
 ?>
 
 <p> Kirjoita tekstialueeseen ongelma, jonka haluat lisata.
