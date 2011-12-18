@@ -40,6 +40,15 @@ include("yhteys.php");
         echo $rivi['stunnus'] . " " . $rivi['kuvaus'] . "<br>";
     }
 }
+public function tulosta_ratkaisu(){
+ include("yhteys.php");
+    echo "Kaikki ratkaisut: <br>";
+    $kysely = $yhteys->prepare("SELECT * FROM ratkaisu ORDER BY rtunnus");
+    $kysely->execute();
+    while ($rivi = $kysely->fetch()) {
+        echo $rivi['rtunnus'] . " " . $rivi['kuvaus'] . "<br>";
+    }
+}
 
 //Parametrina tekstikuvaus
 //return otunnus
@@ -73,6 +82,18 @@ public function get_stunnus($syy){
                 return  $teksti["stunnus"];
 }
 
+//Parametrina kuvaus
+//return rtunnus
+public function get_rtunnus($ratkaisu){
+        include("yhteys.php");
+        $kuvaus = $yhteys->prepare("SELECT * FROM ratkaisu WHERE kuvaus = ?");
+
+                $kuvaus->execute(array($ratkaisu));
+                $teksti = $kuvaus->fetch();
+               // echo $teksti["stunnus"] . " " . $teksti["kuvaus"] . "<br>";
+                return  $teksti["rtunnus"];
+}
+
 
 //Parametrina rtunnus
 //return kuvaus
@@ -83,6 +104,17 @@ public function get_ratkaisu($id){
                 $kuvaus->execute(array($id));
                 $teksti = $kuvaus->fetch();
                 //echo $teksti["rtunnus"] . " " . $teksti["kuvaus"] . "<br>";
+                return  $teksti["kuvaus"];
+}
+
+//Parametrina stunnus
+//return kuvaus
+public function get_syykuvaus($syy){
+	include("yhteys.php");
+        $kuvaus = $yhteys->prepare("SELECT * FROM syy WHERE kuvaus = ?");
+
+                $kuvaus->execute(array($syy));
+                $teksti = $kuvaus->fetch();
                 return  $teksti["kuvaus"];
 }
 

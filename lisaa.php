@@ -9,14 +9,16 @@ $tulostus = new Tulostaja();
 <?php
 
 if (empty($_POST['uusi_ongelma'])) {
+
     echo "Tekstikenttä oli tyhjä!";
     die();
-} 
+}
+/* 
 if(empty($_POST["syyt"])){
  	echo "Et valinnut yhtaan syyta!";
 	die();
 	}
-
+*/
 else {
     	$ongelma = $_POST["uusi_ongelma"];
 	$ongelma = htmlspecialchars($ongelma);
@@ -26,8 +28,13 @@ else {
 	//$lisays->execute(array($ongelma));
 	$otunnus = $tulostus->get_otunnus($ongelma);
 	echo "Tietokantaan lisattiin ongelma: " . $otunnus . " " . $ongelma . "<br>";
- 
-    	$ongelma = $_POST["uusi_ongelma"];
+ }
+    if(empty($_POST["syyt"])){
+ 	echo "Et valinnut yhtaan syyta!";
+	die();
+	}
+else{
+	$ongelma = $_POST["uusi_ongelma"];
 	$ongelma = htmlspecialchars($ongelma);
 	$otunnus = $tulostus->get_otunnus($ongelma);
 	echo "lisattyyn ongelmaan liittyvat syyt: <br>";
