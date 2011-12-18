@@ -16,7 +16,7 @@ public function tulosta_ongelma(){
 	include("yhteys.php");
         $lisays = $yhteys->prepare("SELECT * FROM ongelma_syy");
         $lisays->execute();
-	echo "ongelma_id   syy_id";
+	echo "ongelma_id   syy_id <br>";
         while ($rivi = $lisays->fetch()) {
         echo  $rivi['ongelma_id'] . " " . $rivi['syy_id'] . "<br>";
         } 
@@ -29,17 +29,18 @@ public function get_otunnus($ongelma) {
         $otunnus = $lisays->fetch();
         return $otunnus["otunnus"];
 }
-/*
+
 public function get_stunnus($syy){
         include("yhteys.php");
-        $kuvaus = $yhteys->prepare("SELECT stunnus FROM syy WHERE stunnus = ?");
+        $kuvaus = $yhteys->prepare("SELECT * FROM syy WHERE stunnus = ?");
 
                 $kuvaus->execute(array($syy));
                 $teksti = $kuvaus->fetch();
+		echo $teksti["stunnus"] . " " . $teksti["kuvaus"] . "<br>";
                 return  $teksti["stunnus"];
 }
 
-*/
+
 
 
 }

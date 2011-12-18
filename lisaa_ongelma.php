@@ -1,6 +1,6 @@
 <?php
 include("istunto.php");
-include("yllapito_yla.php");
+include("lisays_yla.php");
 include ("yhteys.php");
 include("Tulostaja.php");
 ?>
@@ -34,7 +34,7 @@ cols=40 rows=2></textarea>
 </p>
 
 <p> Syyhyn liittyvä ratkaisu </p>
-<textarea name="uusi_ratkaisu"
+<textarea name="ratkaisut"
 cols=40 rows=5></textarea>
 
 <br>
@@ -42,4 +42,4 @@ cols=40 rows=5></textarea>
 </form>
 </p>
 
-<?php include("yllapito_ala.php")?>
+<?php include("ala.php")?>
