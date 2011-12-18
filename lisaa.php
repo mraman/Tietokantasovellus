@@ -13,7 +13,7 @@ if (empty($_POST['uusi_ongelma'])) {
     die();
 } 
 if(empty($_POST["syyt"])){
- 	echo "Et valinnut yhtaan syyta tai ratkaisua!";
+ 	echo "Et valinnut yhtaan syyta!";
 	die();
 	}
 
@@ -33,10 +33,9 @@ else {
 	echo "lisattyyn ongelmaan liittyvat syyt: <br>";
 
 	foreach ($_POST['syyt'] as $valinta){
-	$stunnus = $tulostus->get_stunnus($valinta);  
 	//$lisays = $yhteys->prepare("INSERT into ongelma_syy (ongelma_id, syy_id)
 	//VALUES (? , ?)");
-	//$lisays->execute(array($otunnus , $stunnus));
+	//$lisays->execute(array($otunnus , $valinta));
 	} 
 	//$tulostus->tulosta_ongelma_syy();
 

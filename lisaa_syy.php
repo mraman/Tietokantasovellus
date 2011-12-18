@@ -39,10 +39,6 @@ $tulosta = new Tulostaja();
         echo $rivi1["kuvaus"] . "<br>";
     }
     ?>
-    <p> Tai lisaa sille uusi ratkaisu. <br>
-        <textarea name="uusi_ratkaisu"
-                  cols=40 rows=2></textarea>
-    </p>
     <br>
     <input type="submit" name="nappi" value="Lisää">
 </form>

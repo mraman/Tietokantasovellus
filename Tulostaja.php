@@ -21,7 +21,28 @@ public function tulosta_ongelma(){
         echo  $rivi['ongelma_id'] . " " . $rivi['syy_id'] . "<br>";
         } 
 }
+ public function tulosta_syy_ratkaisu(){
+	include("yhteys.php");
+        $lisays = $yhteys->prepare("SELECT * FROM syy_ratkaisu");
+        $lisays->execute();
+	echo "syy_id   ratkaisu_id <br>";
+        while ($rivi = $lisays->fetch()) {
+        echo  $rivi['syy_id'] . " " . $rivi['ratkaisu_id'] . "<br>";
+        } 
+}
 
+public function tulosta_syy(){
+include("yhteys.php");
+    echo "Kaikki syyt: <br>";
+    $kysely = $yhteys->prepare("SELECT * FROM syy ORDER BY stunnus");
+    $kysely->execute();
+    while ($rivi = $kysely->fetch()) {
+        echo $rivi['stunnus'] . " " . $rivi['kuvaus'] . "<br>";
+    }
+}
+
+//Parametrina tekstikuvaus
+//return otunnus
 public function get_otunnus($ongelma) {
         include("yhteys.php");
         $lisays = $yhteys->prepare("SELECT otunnus FROM ongelma WHERE kuvaus = ?");
@@ -30,17 +51,40 @@ public function get_otunnus($ongelma) {
         return $otunnus["otunnus"];
 }
 
+//Parametrina otunnus
+//return kuvaus
+public function get_otunnus1($id) {
+        include("yhteys.php");
+        $lisays = $yhteys->prepare("SELECT kuvaus FROM ongelma WHERE otunnus = ?");
+        $lisays->execute(array($id));
+        $otunnus = $lisays->fetch();
+        return $otunnus["kuvaus"];
+}
+
+//Parametrina kuvaus
+//return stunnus
 public function get_stunnus($syy){
         include("yhteys.php");
-        $kuvaus = $yhteys->prepare("SELECT * FROM syy WHERE stunnus = ?");
+        $kuvaus = $yhteys->prepare("SELECT * FROM syy WHERE kuvaus = ?");
 
                 $kuvaus->execute(array($syy));
                 $teksti = $kuvaus->fetch();
-		echo $teksti["stunnus"] . " " . $teksti["kuvaus"] . "<br>";
+               // echo $teksti["stunnus"] . " " . $teksti["kuvaus"] . "<br>";
                 return  $teksti["stunnus"];
 }
 
 
+//Parametrina rtunnus
+//return kuvaus
+public function get_ratkaisu($id){
+        include("yhteys.php");
+        $kuvaus = $yhteys->prepare("SELECT * FROM ratkaisu WHERE rtunnus = ?");
+
+                $kuvaus->execute(array($id));
+                $teksti = $kuvaus->fetch();
+                //echo $teksti["rtunnus"] . " " . $teksti["kuvaus"] . "<br>";
+                return  $teksti["kuvaus"];
+}
 
 
 }
