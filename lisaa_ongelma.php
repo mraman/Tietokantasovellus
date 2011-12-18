@@ -28,14 +28,6 @@ cols=40 rows=2></textarea>
 	 <?php echo $rivi1["kuvaus"] . "<br>";
 }
  ?>
-<p> Tai lisaa sille uusi syy. <br>
-<textarea name="uusi_syy"
-cols=40 rows=2></textarea>
-</p>
-
-<p> Syyhyn liittyvä ratkaisu </p>
-<textarea name="ratkaisut"
-cols=40 rows=5></textarea>
 
 <br>
 <input type="submit" name="nappi" value="Lisää">
