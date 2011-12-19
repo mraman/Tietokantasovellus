@@ -6,12 +6,15 @@
 
 <body>
 
+<p><img align=left src="sairaalalogo.jpg">
 <h1> Tervetuloa Rööriklinikkaan!</h1>
+
 <a href="index.php"> Etusivu</a> | 
 <a href="valikko.php"> Uusi haku </a> | 
 <a href="palaute.php"> Anna palautetta</a> |
 <a href="kirjautuminen.php"> Ylläpitoon</a>
 <br>
 <hr>
+</p>
 
 <?php include("yhteys.php"); ?>
