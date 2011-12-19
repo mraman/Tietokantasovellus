@@ -4,14 +4,17 @@ include ("yla.php");
 
 
 <?php
+if (empty($_POST["ongelma"])){
+header("Location: valikko.php");
+}
+else{
 $id = $_REQUEST["ongelma"];
-?>
-
-<?php
+echo "Valitsit ongelman: ";
 $valinta = $yhteys->prepare("SELECT kuvaus FROM ongelma WHERE otunnus = ?");
 $valinta->execute(array($id));
 $kuvaus = $valinta->fetch();
 echo $kuvaus[kuvaus] . "<br>";
+}
 ?>
 
 

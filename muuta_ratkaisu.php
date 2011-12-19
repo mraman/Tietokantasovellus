@@ -12,10 +12,10 @@ include ("yhteys.php");
     $kysely->execute();
 
     while ($rivi = $kysely->fetch()) {
-    ?>
+        ?>
         <input type=radio name="ratkaisu" value=<?php echo $rivi["rtunnus"]; ?> > <?php echo $rivi["kuvaus"]; ?>
-        <br>            
-    <?php
+        <br>
+        <?php
     }
     ?>
     <p> Kirjoita valitsemasi ratkaisun kuvaus uudelleen haluamallasi muutoksella </p>
@@ -27,4 +27,5 @@ include ("yhteys.php");
 </form>
 
 <?php include ("muutos_ala.php"); ?>
+
 

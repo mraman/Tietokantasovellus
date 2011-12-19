@@ -9,7 +9,7 @@ include("Tulostaja.php");
 $tulosta = new Tulostaja();
 ?>
 
-<p> Kirjoita tekstialueeseen ratkaisu, jonka haluat lisata.
+<p> Kirjoita tekstialueeseen ratkaisu, jonka haluat lisätä.
 <form action="lisaa2.php" method="post">
 
     <textarea name="uusi_ratkaisu"
@@ -19,14 +19,15 @@ $tulosta = new Tulostaja();
     $kysely1 = $yhteys->prepare("SELECT * FROM syy");
     $kysely1->execute();
     while ($rivi1 = $kysely1->fetch()) {
-    ?>
+        ?>
         <input type=radio name="syy" value= <?php echo $rivi1["stunnus"]; ?> >
-    <?php
+        <?php
         echo $rivi1["kuvaus"] . "<br>";
     }
     ?>
 
-<br>
-    <input type="submit" name="nappi" value="Lis��">
+    <br>
+    <input type="submit" name="nappi" value="Lisää">
 </form>
 <?php include("ala.php") ?>
+

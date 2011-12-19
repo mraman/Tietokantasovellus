@@ -1,4 +1,6 @@
 <?php
+//Käsittelee muuta_syy.php:tä
+//parametrina stunnus
 include("istunto.php");
 include("muutos_yla.php");
 include("yhteys.php");
@@ -20,24 +22,13 @@ $kuvaus = $valinta->fetch();
         $valinta = $yhteys->prepare("UPDATE syy SET kuvaus= ? WHERE stunnus = ?");
         $valinta->execute(array($muutos, $id));
         echo "Syy: " . $kuvaus['kuvaus'] . " <br>
-        On muutettu tekstilla: " . $_POST["uusi_syy"] . "<br>";
+On muutettu tekstilla: " . $_POST["uusi_syy"] . "<br>";
     }
     ?>
 </p>
 
-<p>
 <?php
-    echo "Kaikki syyt: <br>";
-    $kysely = $yhteys->prepare("SELECT * FROM syy ORDER BY stunnus");
-    $kysely->execute();
-
-    while ($rivi = $kysely->fetch()) {
-
-        echo $rivi['stunnus'] . " " . $rivi['kuvaus'] . "<br>";
-    }
+include("muutos_ala.php");
 ?>
-</p>
-    <?php
-    include("muutos_ala.php");
-    ?>
+
 

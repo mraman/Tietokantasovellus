@@ -3,7 +3,7 @@ include ("istunto.php");
 include ("muutos_yla.php");
 include ("yhteys.php");
 ?>
-<h2> Muuta syyta </h2>
+<h2> Muuta syytä </h2>
 <p> Valitse syy, jota haluat muuttaa. </p>
 <form action="muuta1.php" method="post">
     <select name="syy">
@@ -13,10 +13,10 @@ include ("yhteys.php");
 
 
         while ($rivi1 = $kysely1->fetch()) {
-        ?>
+            ?>
             <option value=<?php echo $rivi1["stunnus"]; ?> > <?php echo $rivi1["kuvaus"]; ?>
-            </option>    
-        <?php
+            </option>
+            <?php
         }
         ?>
     </select>
@@ -29,4 +29,5 @@ include ("yhteys.php");
 </form>
 
 <?php include ("muutos_ala.php"); ?>
+
 

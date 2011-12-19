@@ -19,7 +19,6 @@ $kysely->execute();
             echo "<OPTION value='$rivi[otunnus]'>" . $muuttuja . '</OPTION>';
         }
         ?>
-        <OPTION SELECTED> Valitse ongelma  </OPTION>
     </SELECT>
     <p>
         <INPUT TYPE="submit" VALUE="OK">

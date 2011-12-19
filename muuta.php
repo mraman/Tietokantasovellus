@@ -1,6 +1,8 @@
 <?php
+//Käsittelee lomaketta muuta_ongelma.php
+//parametrina otunnus
+include("istunto.php");
 include("muutos_yla.php");
-//include("istunto.php");
 include("yhteys.php");
 ?>
 
@@ -19,22 +21,13 @@ $kuvaus = $valinta->fetch();
         $valinta = $yhteys->prepare("UPDATE ongelma SET kuvaus= ? WHERE otunnus = ?");
         $valinta->execute(array($muutos, $id));
         echo "Ongelma: " . $kuvaus['kuvaus'] . " <br>
-         On muutettu tekstilla: " . $_POST["muutettu_ongelma"] . "<br>";
-    } ?>
-</p>
-<p>
-    <?php
-    echo "Kaikki ongelmat: <br>";
-    $kysely = $yhteys->prepare("SELECT * FROM ongelma ORDER BY otunnus");
-    $kysely->execute();
-
-    while ($rivi = $kysely->fetch()) {
-
-        echo $rivi['otunnus'] . " " . $rivi['kuvaus'] . "<br>";
+On muutettu tekstilla: " . $_POST["muutettu_ongelma"] . "<br>";
     }
     ?>
 </p>
 <?php
-    include("muutos_ala.php");
+include("muutos_ala.php");
 ?>
+
+
 

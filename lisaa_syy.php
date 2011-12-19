@@ -9,39 +9,41 @@ include("Tulostaja.php");
 $tulosta = new Tulostaja();
 ?>
 
-<p> Kirjoita tekstialueeseen syy, jonka haluat lisata.
+<p> Kirjoita tekstialueeseen syy, jonka haluat lis√§t√§.
 <form action="lisaa1.php" method="post">
 
     <textarea name="uusi_syy"
               cols=40 rows=2></textarea>
-<p> Valitse ongelma, johon syy liittyy </p>
+    <p> Valitse ongelma, johon syy liittyy </p>
     <?php
     $kysely1 = $yhteys->prepare("SELECT * FROM ongelma");
     $kysely1->execute();
     while ($rivi1 = $kysely1->fetch()) {
-    ?>
+        ?>
         <input type=radio name="ongelma" value= <?php echo $rivi1["otunnus"]; ?> >
-    <?php
+        <?php
         echo $rivi1["kuvaus"] . "<br>";
     }
     ?>
 
 
-    <p> Valitse syyhyn liittyv‰ ratkaisu </p>
+    <p> Valitse syyhyn liittyv√§ ratkaisu </p>
 
     <?php
     $kysely1 = $yhteys->prepare("SELECT * FROM ratkaisu");
     $kysely1->execute();
     while ($rivi1 = $kysely1->fetch()) {
-    ?>
+        ?>
         <input type=radio name="ratkaisu" value= <?php echo $rivi1["rtunnus"]; ?> >
-    <?php
+        <?php
         echo $rivi1["kuvaus"] . "<br>";
     }
     ?>
     <br>
-    <input type="submit" name="nappi" value="Lis‰‰">
+    <input type="submit" name="nappi" value="Lis√§√§">
 </form>
 
 
 <?php include("ala.php") ?>
+
+

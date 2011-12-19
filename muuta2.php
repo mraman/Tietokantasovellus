@@ -1,4 +1,6 @@
 <?php
+//Käsittelee muuta_ratkaisu.php:tä
+//parametrina rtunnus
 include("istunto.php");
 include("muutos_yla.php");
 include("yhteys.php");
@@ -14,32 +16,21 @@ $valinta->execute(array($id));
 $kuvaus = $valinta->fetch();
 ?>
 <p>
-<?php
-if (empty($_POST['uusi_ratkaisu'])) {
-    header("Location: muuta_ratkaisu.php");
-} else {
-    $muutos = $_POST['uusi_ratkaisu'];
-    $valinta = $yhteys->prepare("UPDATE ratkaisu SET kuvaus= ?WHERE rtunnus= ?");
-    $valinta->execute(array($muutos, $id));
-    echo "Ratkaisu: " . $kuvaus['kuvaus'] . " <br>
-        On muutettu tekstilla: " . $_POST["uusi_ratkaisu"] . "<br>";
-}
-?>
-</p>
-
-<p>
-<?php
-echo "Kaikki ratkaisut: <br>";
-$kysely = $yhteys->prepare("SELECT * FROM ratkaisu ORDER BY rtunnus");
-$kysely->execute();
-
-while ($rivi = $kysely->fetch()) {
-
-    echo $rivi['rtunnus'] . " " . $rivi['kuvaus'] . "<br>";
-}
-?>
-</p>
     <?php
-    include("muutos_ala.php");
+    if (empty($_POST['uusi_ratkaisu'])) {
+        header("Location: muuta_ratkaisu.php");
+    } else {
+        $muutos = $_POST['uusi_ratkaisu'];
+        $valinta = $yhteys->prepare("UPDATE ratkaisu SET kuvaus= ?WHERE rtunnus= ?");
+        $valinta->execute(array($muutos, $id));
+        echo "Ratkaisu: " . $kuvaus['kuvaus'] . " <br>
+On muutettu tekstilla: " . $_POST["uusi_ratkaisu"] . "<br>";
+    }
     ?>
+</p>
+
+<?php
+include("muutos_ala.php");
+?>
+
 
