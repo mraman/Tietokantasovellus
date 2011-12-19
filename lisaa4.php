@@ -8,8 +8,8 @@ $tulostus = new Tulostaja();
 
 <?php
 
-if(empty($_POST["ongelma"])){
-  echo "Et valinnut yhtaan ongelmaa!";
+if(empty($_POST["ratkaisu"])){
+  echo "Et valinnut yhtaan ratkaisua!";
 die();
 }
 if(empty($_POST["syy"])){
@@ -18,13 +18,14 @@ die();
 }
 
 else {
-$otunnus = $_POST["ongelma"];
+$rtunnus = $_POST["ratkaisu"];
 $stunnus = $_POST["syy"];
-
-$lisays = $yhteys->prepare("INSERT into ongelma_syy (ongelma_id, syy_id)
+/*
+$lisays = $yhteys->prepare("INSERT into syy_ratkaisu (syy_id, ratkaisu_id)
 VALUES (? , ?)");
-$lisays->execute(array($otunnus , $stunnus));
-$tulostus->tulosta_ongelma_syy();
+$lisays->execute(array($stunnus , $rtunnus));
+*/
+$tulostus->tulosta_syy_ratkaisu();
 
 echo "uuden yhteyden lisaaminen onnistui! ";
 }

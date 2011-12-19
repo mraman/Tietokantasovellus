@@ -7,6 +7,7 @@
         <a href="lisaa_linkit.php" > Lisää ongelma  </a> |
         <a href="lisaa_syy.php" > Lisää syy  </a> |
         <a href="lisaa_ratkaisu.php" > Lisää ratkaisu</a> |
+        <a href="lisaa_syy_ratkaisu.php" > Lisaa syyhyn ratkaisu  </a>
         <a href="yllapito.php" > Takaisin ylläpitoon  </a> |
         <a href="ulos.php" > Kirjaudu ulos  </a>
         <hr>

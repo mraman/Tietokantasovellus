@@ -23,9 +23,9 @@ else {
     	$ongelma = $_POST["uusi_ongelma"];
 	$ongelma = htmlspecialchars($ongelma);
 
-	//$lisays = $yhteys->prepare("INSERT into ongelma (kuvaus)
-	//VALUES (?)");
-	//$lisays->execute(array($ongelma));
+	$lisays = $yhteys->prepare("INSERT into ongelma (kuvaus)
+	VALUES (?)");
+	$lisays->execute(array($ongelma));
 	$otunnus = $tulostus->get_otunnus($ongelma);
 	echo "Tietokantaan lisattiin ongelma: " . $otunnus . " " . $ongelma . "<br>";
  }
@@ -40,9 +40,9 @@ else{
 	echo "lisattyyn ongelmaan liittyvat syyt: <br>";
 
 	foreach ($_POST['syyt'] as $valinta){
-	//$lisays = $yhteys->prepare("INSERT into ongelma_syy (ongelma_id, syy_id)
-	//VALUES (? , ?)");
-	//$lisays->execute(array($otunnus , $valinta));
+	$lisays = $yhteys->prepare("INSERT into ongelma_syy (ongelma_id, syy_id)
+	VALUES (? , ?)");
+	$lisays->execute(array($otunnus , $valinta));
 	} 
 	//$tulostus->tulosta_ongelma_syy();
 

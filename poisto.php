@@ -1,36 +1,33 @@
 <?php
 include("istunto.php");
 include("yhteys.php");
-include("poisto_yla.php"); ?>
+include("poisto_yla.php");
+include("Tulostaja.php");
+$tulostus = new Tulostaja();
+ ?>
 
-<?php
-$id = $_POST["ongelma"];
-$valinta = $yhteys->prepare("SELECT kuvaus FROM ongelma WHERE otunnus = ?");
-$valinta->execute(array($id));
-$kuvaus = $valinta->fetch();
-?>
 <p>
 <?php
     if (empty($_POST['ongelma'])) {
-        header("Location: poista_ongelma.php");
-    } else {
+       echo "Et valinnut ongelmaa!";
+    }
+
+ else { try{
+$id = $_POST["ongelma"];
+$kuvaus = $tulostus->get_otunnus1($id);
         $valinta = $yhteys->prepare("DELETE FROM ongelma WHERE otunnus = ?");
         $valinta->execute(array($id));
-        echo "Ongelma: " . $kuvaus['kuvaus'] . " on poistettu. <br>";
+        echo "Ongelma: " . $kuvaus . " on poistettu. <br>";
+
+
+
+        $valinta = $yhteys->prepare("DELETE FROM ongelma_syy  WHERE ongelma_id = ?");
+        $valinta->execute(array($id));
+	}
+catch (Exception $e){die("VIRHE poistossa! ");}
+
     } ?>
-</p>
-<p>
-
-<?php
-    echo "Kaikki ongelmat: <br>";
-    $kysely = $yhteys->prepare("SELECT * FROM ongelma ORDER BY otunnus");
-    $kysely->execute();
-
-    while ($rivi = $kysely->fetch()) {
-
-        echo $rivi['otunnus'] . " " . $rivi['kuvaus'] . "<br>";
-    }
-    ?>
 </p>
 
 <?php include("poisto__ala.php"); ?>
+
