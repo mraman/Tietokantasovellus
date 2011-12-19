@@ -14,6 +14,6 @@ Valitse ratkaisu, jota haluat muuttaa ja kirjoita valitsemasi ratkaisu uudelleen
 </p>
 
 
-<?php include("yllapito_ala.php")?>
+<?php include("ala.php")?>
 
 

@@ -1,5 +1,6 @@
 <?php
-
+//Parametrina otunns, stunnus
+//kasittelee lomakkeen lisaa_ongelma_syy.php tietoja
 include ("istunto.php");
 include ("yhteys.php");
 include ("lisays_yla.php");

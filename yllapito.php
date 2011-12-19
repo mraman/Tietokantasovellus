@@ -9,6 +9,6 @@ include("yllapito_yla.php"); ?>
 <a href="etusivu_poista.php"><b>Poista tietoa:</b></a> voit poistaa tietokannasta ongelmia, syitä ja ratkaisuja. 
 </p>
 
-<?php include ("yllapito_ala.php"); ?>
+<?php include ("ala.php"); ?>
 
 

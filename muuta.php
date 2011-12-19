@@ -1,6 +1,6 @@
 <?php
 //Käsittelee lomaketta muuta_ongelma.php
-//parametrina otunnus
+//parametrina otunnus, ongelman kuvaus
 include("istunto.php");
 include("muutos_yla.php");
 include("yhteys.php");
@@ -26,7 +26,7 @@ On muutettu tekstilla: " . $_POST["muutettu_ongelma"] . "<br>";
     ?>
 </p>
 <?php
-include("muutos_ala.php");
+include("ala.php");
 ?>
 
 

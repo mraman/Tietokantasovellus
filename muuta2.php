@@ -1,6 +1,6 @@
 <?php
 //Käsittelee muuta_ratkaisu.php:tä
-//parametrina rtunnus
+//parametrina rtunnus, ratkaisun kuvaus
 include("istunto.php");
 include("muutos_yla.php");
 include("yhteys.php");
@@ -30,7 +30,7 @@ On muutettu tekstilla: " . $_POST["uusi_ratkaisu"] . "<br>";
 </p>
 
 <?php
-include("muutos_ala.php");
+include("ala.php");
 ?>
 
 

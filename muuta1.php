@@ -1,6 +1,6 @@
 <?php
 //Käsittelee muuta_syy.php:tä
-//parametrina stunnus
+//parametrina stunnus, syyn kuvaus
 include("istunto.php");
 include("muutos_yla.php");
 include("yhteys.php");
@@ -28,7 +28,7 @@ On muutettu tekstilla: " . $_POST["uusi_syy"] . "<br>";
 </p>
 
 <?php
-include("muutos_ala.php");
+include("ala.php");
 ?>
 
 

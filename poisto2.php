@@ -27,7 +27,7 @@ $tulostus = new Tulostaja();
     ?>
 </p>
 
-<?php include("poisto__ala.php"); ?>
+<?php include("ala.php"); ?>
 
 
 

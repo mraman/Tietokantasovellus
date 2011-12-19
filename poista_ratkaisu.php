@@ -22,5 +22,5 @@ include("poisto_yla.php");
 </p>
 </form>
 
-<?php include("poisto__ala.php"); ?>
+<?php include("ala.php"); ?>
 

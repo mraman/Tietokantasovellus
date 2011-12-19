@@ -28,6 +28,6 @@ include ("yhteys.php");
     </p>
 </form>
 
-<?php include ("muutos_ala.php"); ?>
+<?php include ("ala.php"); ?>
 
 

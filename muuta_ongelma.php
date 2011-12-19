@@ -30,4 +30,4 @@ include ("muutos_yla.php");
         <INPUT TYPE="submit" VALUE="OK">
     </p>
 </form>
-<?php include ("muutos_ala.php"); ?>
+<?php include ("ala.php"); ?>
