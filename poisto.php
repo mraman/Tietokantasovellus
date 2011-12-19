@@ -15,13 +15,14 @@ $tulostus = new Tulostaja();
     } else {
         try {
             $id = $_POST["ongelma"];
+            $valinta = $yhteys->prepare("DELETE FROM ongelma_syy WHERE ongelma_id = ?");
+            $valinta->execute(array($id));
+
             $kuvaus = $tulostus->get_otunnus1($id);
             $valinta = $yhteys->prepare("DELETE FROM ongelma WHERE otunnus = ?");
             $valinta->execute(array($id));
             echo "Ongelma: " . $kuvaus . " on poistettu. <br>";
 
-            $valinta = $yhteys->prepare("DELETE FROM ongelma_syy WHERE ongelma_id = ?");
-            $valinta->execute(array($id));
         } catch (Exception $e) {
             die("VIRHE poistossa! ");
         }

@@ -14,15 +14,21 @@ $tulostus = new Tulostaja();
     if (empty($_POST['syy'])) {
         echo "Et valinnut syyta!";
     } else {
+try{
         $id = $_POST["syy"];
-        echo "id: " . $id;
+        //echo "id: " . $id;
+
+        $valinta = $yhteys->prepare("DELETE FROM syy_ratkaisu WHERE syy_id = ?");
+        $valinta->execute(array($id));
+
         $kuvaus = $tulostus->get_syykuvaus($id);
         $valinta = $yhteys->prepare("DELETE FROM syy WHERE stunnus = ?");
         $valinta->execute(array($id));
         echo "Syy: " . $kuvaus . " on poistettu. <br>";
+	} catch (Excepti $e) {
+	 die("VIRHE poistossa!");	
+	}
 
-        $valinta = $yhteys->prepare("DELETE FROM syy_ratkaisu WHERE syy_id = ?");
-        $valinta->execute(array($id));
     }
     ?>
 </p>
