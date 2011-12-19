@@ -1,6 +1,9 @@
 <?php include ("istunto.php"); ?>
 <html>
-    <head><title> Ylläpito </title></head>
+    <head>
+<title> Ylläpito </title>
+<link rel="stylesheet" type="text/css" href="tyylit.css" /> 
+</head>
     <body>
         <p>
 	<p><IMG ALIGN=left SRC="reed.jpeg">

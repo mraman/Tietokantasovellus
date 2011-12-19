@@ -2,11 +2,11 @@
 	H1,B	{font-style:	italic;
 		color:		 green;
 	}
-	P	{font-family:	verdana;
+	P	{
 		
 	}
 	UL	{list-style-type: square;}
 	body    {background:     white;
 		
-		}
+	}
 
